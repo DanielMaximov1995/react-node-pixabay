@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Route, Routes, useSearchParams } from 'react-router-dom';
+import ImageList from './components/ImageList';
+import Modal from './components/Modal';
+import CategorySelector from './components/CategorySelector';
+import { useDispatch } from 'react-redux';
+import { fetchImages } from './redux/actions/ImageActions';
+import { fetchCategories } from './redux/actions/categoriesActions';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  let [searchParams] = useSearchParams();
+  let pageNumber = parseInt(searchParams.get('page'));
+  let query = searchParams.get('query')
+
+  useEffect(() => {
+    if(pageNumber && query) {
+      dispatch(fetchImages(query, pageNumber, 'latest')); 
+    }
+  },[searchParams])
+
+  useEffect(() => {
+    dispatch(fetchCategories())
+  },[])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="mx-auto p-4 w-[60%]">
+        <h1 className="text-3xl font-bold mb-4 text-center">Pixabay Gallery</h1>
+        <CategorySelector />
+        <Routes>
+          <Route path="/" element={<ImageList pageNumber={pageNumber} query={query}/>} />
+          <Route path="/image/:id" element={<Modal />} />
+        </Routes>
+      </div>
   );
 }
 
-export default App;
+export default App
