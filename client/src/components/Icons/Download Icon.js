@@ -1,16 +1,7 @@
-const strokes = {
-  primary: "stroke-primary",
-  accent: "stroke-accent",
-  success: "stroke-green-600",
-  error: "stroke-red-600",
-  warning: "stroke-yellow-400",
-};
 
-
-const DownloadIcon = ({ fontSize, color }) => {
+const DownloadIcon = ({ fontSize }) => {
   return (
     <svg
-      className={`${strokes[color]}`}
       style={{ fontSize: `${fontSize}px` }}
       xmlns="http://www.w3.org/2000/svg"
       width="1em"

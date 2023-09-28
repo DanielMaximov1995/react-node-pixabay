@@ -1,17 +1,9 @@
 
-const strokes = {
-    primary: 'text-primary',
-    accent: 'text-accent',
-    success: 'text-green-600',
-    error: 'text-red-600',
-    warning: 'text-yellow-400'
-}
 
-const ReloadIcon = ({ fontSize, color }) => {
+const ReloadIcon = ({ fontSize }) => {
 
     return (
         <svg
-            className={`${strokes[color]}`}
             style={{ fontSize : `${fontSize}px`}}
             xmlns="http://www.w3.org/2000/svg"
             width="1em"

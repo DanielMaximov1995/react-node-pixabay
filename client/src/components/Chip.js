@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Chip = (props) => {
     const { icon , title , className } = props

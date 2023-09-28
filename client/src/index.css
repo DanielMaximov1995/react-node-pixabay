@@ -30,3 +30,14 @@ code {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.hello {
+  animation: rotate-hello 1.5s linear infinite;
+}
+
+@keyframes rotate-hello {
+  0% { -webkit-transform: rotate(0deg); }
+  25% { -webkit-transform: rotate(20deg); }
+  75% { -webkit-transform: rotate(-20deg); }
+  100% { -webkit-transform: rotate(0deg); }
+}

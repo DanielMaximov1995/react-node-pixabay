@@ -1,15 +1,8 @@
-const strokes = {
-  primary: "stroke-primary",
-  accent: "stroke-accent",
-  success: "stroke-green-600",
-  error: "stroke-red-600",
-  warning: "stroke-yellow-400",
-};
 
-const LikeIcon = ({ fontSize, color }) => {
+
+const LikeIcon = ({ fontSize }) => {
   return (
     <svg
-      className={`${strokes[color]}`}
       style={{ fontSize: `${fontSize}px` }}
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
