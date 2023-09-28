@@ -13,7 +13,7 @@ const ImageItem = ({ image }) => {
   const dispatch = useDispatch()
 
   const handleClickImage = () => {
-    dispatch({ type : 'SHOW_MODAL' , payload : image.id })
+    dispatch({ type : 'MODAL_STATUS' , payload : image.id })
   }
 
   return (
@@ -21,7 +21,7 @@ const ImageItem = ({ image }) => {
       <div onClick={handleClickImage} className='rounded-lg border-primary border-solid border-[1px] rounded-lg p-2 group cursor-pointer'>
       <img  src={image.webformatURL} alt={image.id} className="w-[400px] h-[400px] group-hover:scale-90 transition-all object-cover rounded-lg" />
     </div>
-    <Modal id={image.id}>
+    <Modal choose={image.id}>
     <div className="text-sm text-gray-600 h-30 flex flex-wrap justify-center items-center">
         <div className='w-full flex flex-wrap justify-center'>
         <p className='text-[22px] py-3 w-full flex  justify-center'>{image.user}</p>

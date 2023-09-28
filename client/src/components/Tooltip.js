@@ -6,7 +6,7 @@ const Tooltip = (props) => {
 
     return (
         <div className='justify-center relative group transition-all'>
-            <div className='mx-2.5 group-hover:-mb-1 -mb-2 transition-all'>
+            <div className='mx-2.5 -mb-2 transition-all'>
                 {children}
             </div>
                 <div id='tooltip' className={className}>

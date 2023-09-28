@@ -12,6 +12,8 @@ const imagesReducer = (state = initialState, action) => {
           images : action.payload.result,
           pages : action.payload.pages
       }
+    case 'CLEAR_IMAGES':
+      return initialState
     case 'LOADING_IMAGES':
       return{...state ,loading: !state.loading}
     default:

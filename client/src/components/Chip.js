@@ -1,12 +1,14 @@
 import React from 'react'
 
 const Chip = (props) => {
-    const { icon , title } = props
+    const { icon , title , className } = props
+
+    const classes = `${className} bg-primary flex justify-center items-center gap-x-2 text-[20px] p-2 rounded-xl`
 
   return (
-    <div className='bg-primary flex justify-center items-center text-[20px] p-2 rounded-xl'>
-        <span>{icon}</span>
-        <span>{title}</span>
+    <div {...props} className={classes}>
+        <span className={!icon && `hidden`}>{icon}</span>
+        <span className={!title && `hidden`}>{title}</span>
     </div>
   )
 }

@@ -2,15 +2,15 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Modal = (props) => {
-    const { children , id } = props
+    const { children , choose } = props
   const showModal = useSelector((state) => state.showModal);
   const dispatch = useDispatch();
 
   const onClose = () => {
-    dispatch({type : 'HIDE_MODAL'})
+    dispatch({type : 'MODAL_STATUS'})
   }
 
-  if (showModal !== id) {
+  if (showModal !== choose) {
     return null;
   }
 
