@@ -7,7 +7,6 @@ const ImageList = (props) => {
   const { pageNumber , query } = props
   const { images , pages , loading  } = useSelector((state) => state.images);
 
-  console.log(images);
 
   return (
     <div>

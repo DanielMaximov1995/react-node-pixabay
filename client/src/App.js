@@ -14,13 +14,13 @@ const App = () => {
   const pageNumber = parseInt(searchParams.get('page'));
   const query = searchParams.get('query');
 
-  // fetch images based on query and page number
+  // Fetch images based on query and page number
   useEffect(() => {
     // Check query and page number are available 
     pageNumber && query ? dispatch(fetchImages(query, pageNumber, 'latest')) : dispatch({ type: 'CLEAR_IMAGES' })
   }, [searchParams]);
 
-  // fetch categories
+  // Fetch categories
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);

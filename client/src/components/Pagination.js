@@ -9,7 +9,7 @@ const Pagination = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
-    // generate an array of page numbers based on current page and total pages
+  // Generate an array of page numbers based on current page and total pages
   const showPageNumbers = () => {
     const maxPageItems = 10; 
     const halfMax = Math.floor(maxPageItems / 2);

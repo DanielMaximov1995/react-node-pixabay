@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
       `https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${category}&page=${page}&per_page=9&order=${sortBy}`
     );
 
+    // Map relevant data from the response
     const result = resp.data.hits.map(item => ({
       id: item.id,
       collections : item.collections,
@@ -24,8 +25,11 @@ router.get("/", async (req, res) => {
       tags : item.tags,
     }))
 
+    // Calculate the number of pages based on the total hits
+    const pages = Math.ceil(resp.data.totalHits / 9);
+
     res.status(201).json({
-      pages: Math.ceil(resp.data.totalHits / 9),
+      pages,
       result,
     });
   } catch (error) {

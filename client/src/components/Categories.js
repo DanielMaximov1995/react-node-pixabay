@@ -9,12 +9,12 @@ const CategorySelector = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  // toggle modal visibility
+  // Toggle modal visibility
   const handleModalStatus = () => {
     dispatch({ type : 'MODAL_STATUS' , payload : 'categories' })
   }
 
-  // choose a category and update the URL
+  // Choose a category and update the URL
   const ChooseCategory = (category) => {
     navigate(`?page=1&query=${category}`)
     handleModalStatus()
@@ -36,7 +36,6 @@ const CategorySelector = () => {
     <Modal choose={'categories'}>
       <div className="w-[600px] px-10">
         <div className="flex flex-wrap">
-          {/* list of categories */}
           {categories.map((category) => (
             <div key={category} className="p-2 max-w-max">
               <Chip onClick={() => ChooseCategory(category)} className="cursor-pointer capitalize" title={category} />
